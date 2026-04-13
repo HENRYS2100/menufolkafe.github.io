@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOLKAFE | Menú</title>
+    <title>FOLKAFE | Menú Tex-Mex</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #a11d21;
             --primary-dark: #7a1417;
             --secondary: #f39233;
             --whatsapp: #25D366;
-            --bg: #fdfdfd;
-            --text: #2d3436;
-            --shadow: 0 10px 20px rgba(0,0,0,0.08);
+            --instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-muted: #636e72;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --radius: 18px;
         }
 
         * {
@@ -27,61 +31,54 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             background: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             padding-bottom: 120px;
+            line-height: 1.6;
         }
 
-        /* Hero Header */
+        /* Hero Header Modernizado */
         header {
-            background: white;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
             text-align: center;
-            padding: 30px 20px;
-            border-bottom: 4px solid var(--primary);
+            padding: 40px 20px;
+            border-bottom: 5px solid var(--primary);
             box-shadow: var(--shadow);
-        }
-
-        .header-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 8px;
+            position: relative;
         }
 
         .header-title h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         header p {
-            margin: 5px 0 0;
-            color: var(--text);
-            opacity: 0.9;
-            font-weight: 400;
+            margin: 10px auto 0;
+            color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.4;
-            max-width: 320px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 350px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Categorías */
+        /* Secciones */
         h2 {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--primary);
-            margin: 35px 0 15px;
-            font-size: 1.4rem;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
             font-weight: 800;
         }
 
@@ -89,98 +86,105 @@
             content: "";
             flex: 1;
             height: 2px;
-            background: #f0f0f0;
+            background: linear-gradient(to right, #eee, transparent);
         }
 
-        /* Grid de Productos */
+        /* Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        @media (min-width: 600px) {
-            .menu-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        /* Tarjetas de Producto */
+        /* Tarjetas Mejoradas */
         .card {
-            background: white;
-            border-radius: 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 1px solid #f0f0f0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
+        .card:active {
+            transform: scale(0.98);
+        }
+
         .card-img {
             width: 100%;
-            height: 140px;
+            height: 160px;
             background: #fdfdfd;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            border-bottom: 1px solid #f5f5f5;
+            font-size: 3.5rem;
+            position: relative;
+            background: radial-gradient(circle, #ffffff, #f9f9f9);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
         }
 
         .card-content {
-            padding: 18px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .card h3 {
-            margin: 0 0 6px;
-            font-size: 1.05rem;
-            color: #111;
+            margin: 0 0 8px;
+            font-size: 1.1rem;
             font-weight: 700;
         }
 
         .card p {
-            margin: 0 0 12px;
-            font-size: 0.8rem;
-            color: #777;
-            line-height: 1.4;
+            margin: 0 0 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
             flex-grow: 1;
         }
 
         .price-tag {
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 15px;
-            display: block;
         }
 
-        /* Controles de Cantidad */
+        /* Controles */
         .controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
-            background: #f9f9f9;
-            padding: 4px;
-            border-radius: 12px;
+            background: #f1f2f6;
+            padding: 5px;
+            border-radius: 14px;
         }
 
         .btn-qty {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             background: white;
-            color: var(--text);
+            color: var(--text-main);
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             transition: all 0.2s;
         }
@@ -192,22 +196,69 @@
 
         .qty-display {
             font-weight: 700;
-            font-size: 1rem;
-            min-width: 20px;
-            text-align: center;
+            font-size: 1.1rem;
         }
 
         .btn-add-initial {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             background: var(--primary);
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             font-family: inherit;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(161, 29, 33, 0.2);
+        }
+
+        /* Redes Sociales */
+        .social-section {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .social-section h3 {
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-social:active {
+            transform: scale(0.95);
+        }
+
+        .btn-instagram {
+            background: var(--instagram);
+        }
+
+        .btn-location {
+            background: #4285F4;
         }
 
         /* Carrito Flotante */
@@ -215,36 +266,90 @@
             position: fixed;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(100px);
             width: calc(100% - 40px);
-            max-width: 500px;
-            background: var(--whatsapp);
+            max-width: 450px;
+            background: var(--text-main);
             color: white;
-            padding: 16px 25px;
-            border-radius: 50px;
+            padding: 18px 25px;
+            border-radius: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             z-index: 1000;
             text-decoration: none;
-            font-weight: 600;
-            visibility: hidden;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .cart-status.active {
-            visibility: visible;
-            opacity: 1;
-            bottom: 30px;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .cart-btn-send {
+            background: var(--whatsapp);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #bbb;
-            font-size: 0.75rem;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Modal Simple */
+        #order-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content h4 { margin-top: 0; font-size: 1.3rem; }
+        .modal-content .btn-confirm {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn-close-modal {
+            background: #eee;
+            margin-top: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
         }
 
     </style>
@@ -253,9 +358,9 @@
 
 <header>
     <div class="header-title">
-        <h1>🍔 FOLKAFE</h1>
+        <h1><span>🍔</span> FOLKAFE</h1>
     </div>
-    <p>¡Ahora puedes disfrutar Folkafe Tex-Mex desde tu casa!</p>
+    <p>Auténtico sabor Tex-Mex hasta tu puerta. Selecciona tus favoritos abajo.</p>
 </header>
 
 <div class="container">
@@ -264,23 +369,24 @@
     <h2>Entradas</h2>
     <div class="menu-grid">
         <div class="card" data-id="1" data-name="Nachos Grande" data-price="5.00">
+            <div class="badge">🔥 Popular</div>
             <div class="card-img">🌮</div>
             <div class="card-content">
                 <h3>Nachos Grande</h3>
-                <p>Chilli con carne artesanal, mix de quesos y guacamole fresco.</p>
-                <span class="price-tag">$5.00</span>
+                <p>Chilli con carne artesanal, mix de quesos fundidos y guacamole fresco.</p>
+                <div class="price-tag">$5.00</div>
                 <div id="ui-1">
                     <button class="btn-add-initial" onclick="updateCart(1, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
 
-        <div class="card" data-id="2" data-name="Nacho Clásico" data-price="5.00">
-            <div class="card-img">🧀</div>
+        <div class="card" data-id="2" data-name="Folk Chilli Fries" data-price="5.00">
+            <div class="card-img">🍟</div>
             <div class="card-content">
                 <h3>Folk Chilli Fries</h3>
-                <p>Crujiente papas fritas con chilli carne salsa de tomate y queso fundido.</p>
-                <span class="price-tag">$5.00</span>
+                <p>Papas crujientes con chilli carne, salsa de tomate de la casa y queso.</p>
+                <div class="price-tag">$5.00</div>
                 <div id="ui-2">
                     <button class="btn-add-initial" onclick="updateCart(2, 1)">Agregar al pedido</button>
                 </div>
@@ -294,9 +400,9 @@
         <div class="card" data-id="4" data-name="Folk Timer" data-price="3.50">
             <div class="card-img">🍔</div>
             <div class="card-content">
-                <h3>Folk Timer </h3>
+                <h3>Folk Timer</h3>
                 <p>Carne 100% res, lechuga, tomate, tocino, queso y papas fritas.</p>
-                <span class="price-tag">$3.50</span>
+                <div class="price-tag">$3.50</div>
                 <div id="ui-4">
                     <button class="btn-add-initial" onclick="updateCart(4, 1)">Agregar al pedido</button>
                 </div>
@@ -304,11 +410,12 @@
         </div>
 
         <div class="card" data-id="5" data-name="Big Mouth Burger" data-price="7.00">
+            <div class="badge">Top</div>
             <div class="card-img">🥓</div>
             <div class="card-content">
                 <h3>Big Mouth</h3>
-                <p>Doble carne, extra cheddar, tocino ahumado y salsa especial.</p>
-                <span class="price-tag">$7.00</span>
+                <p>Doble carne, extra cheddar, doble tocino ahumado y salsa secreta.</p>
+                <div class="price-tag">$7.00</div>
                 <div id="ui-5">
                     <button class="btn-add-initial" onclick="updateCart(5, 1)">Agregar al pedido</button>
                 </div>
@@ -316,11 +423,12 @@
         </div>
 
         <div class="card" data-id="6" data-name="La Patrona" data-price="10.00">
+            <div class="badge">Premium</div>
             <div class="card-img">👑</div>
             <div class="card-content">
                 <h3>La Patrona</h3>
-                <p>Carne de res, costilla de cerdo desmechada y baño de cheddar.</p>
-                <span class="price-tag">$10.00</span>
+                <p>Carne de res, costilla de cerdo desmechada al BBQ y baño de cheddar.</p>
+                <div class="price-tag">$10.00</div>
                 <div id="ui-6">
                     <button class="btn-add-initial" onclick="updateCart(6, 1)">Agregar al pedido</button>
                 </div>
@@ -329,14 +437,14 @@
     </div>
 
     <!-- BEBIDAS -->
-    <h2>Bebidas</h2>
+    <h2>Bebidas y Frappes</h2>
     <div class="menu-grid">
         <div class="card" data-id="7" data-name="Limonada Mix" data-price="2.00">
             <div class="card-img">🍋</div>
             <div class="card-content">
                 <h3>Limonada Mix</h3>
-                <p>Natural, Pink. Blue.</p>
-                <span class="price-tag">$2.00</span>
+                <p>Refrescante limonada natural, Pink o Blue según tu preferencia.</p>
+                <div class="price-tag">$2.00</div>
                 <div id="ui-7">
                     <button class="btn-add-initial" onclick="updateCart(7, 1)">Agregar al pedido</button>
                 </div>
@@ -347,38 +455,67 @@
             <div class="card-img">🥤</div>
             <div class="card-content">
                 <h3>Milkshake</h3>
-                <p>Cremosa malteada de Fresa, Chocolate o Mora.</p>
-                <span class="price-tag">$3.50</span>
+                <p>Cremosa malteada de Fresa, Chocolate o Mora silvestre.</p>
+                <div class="price-tag">$3.50</div>
                 <div id="ui-8">
                     <button class="btn-add-initial" onclick="updateCart(8, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="card" data-id="8" data-name="Frapper" data-price="3.50">
-            <div class="card-img">🥤</div>
+        <div class="card" data-id="9" data-name="Frapper Oreo" data-price="3.50">
+            <div class="card-img">🍪</div>
             <div class="card-content">
-                <h3>Frapper </h3>
-                <p>Frapper de oreo, Frappuccino.</p>
-                <span class="price-tag">$3.50</span>
-                <div id="ui-8">
-                    <button class="btn-add-initial" onclick="updateCart(8, 1)">Agregar al pedido</button>
+                <h3>Frapper Oreo / Capuccino</h3>
+                <p>Delicioso granizado con galleta Oreo o base de café premium.</p>
+                <div class="price-tag">$3.50</div>
+                <div id="ui-9">
+                    <button class="btn-add-initial" onclick="updateCart(9, 1)">Agregar al pedido</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Sección de Redes Sociales -->
+    <div class="social-section">
+        <h3>¡Síguenos y visítanos! ⚡</h3>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/folkafe.la?igsh=Y25mYXAzM2syaHAz" target="_blank" class="btn-social btn-instagram">
+                <span>📸</span> Instagram
+            </a>
+            <a href="https://maps.app.goo.gl/uXv7fJ2C9v9D8H7L9" target="_blank" class="btn-social btn-location">
+                <span>📍</span> Cómo llegar
+            </a>
         </div>
     </div>
 
 </div>
 
 <!-- Carrito Flotante -->
-<a href="#" class="cart-status" id="cart-btn" onclick="sendOrder()">
-    <span id="cart-count">Ver pedido (0)</span>
-    <span id="cart-total">$0.00</span>
-</a>
+<div class="cart-status" id="cart-btn">
+    <div>
+        <div style="font-size: 0.8rem; opacity: 0.8;">Tu Pedido</div>
+        <div id="cart-total" style="font-size: 1.1rem; font-weight: 700;">$0.00</div>
+    </div>
+    <div class="cart-btn-send" onclick="showSummary()">
+        Enviar Pedido ➔
+    </div>
+</div>
+
+<!-- Modal de Resumen -->
+<div id="order-modal">
+    <div class="modal-content">
+        <h4>Resumen del Pedido</h4>
+        <div id="order-list" style="text-align: left; margin: 15px 0; max-height: 200px; overflow-y: auto;">
+        </div>
+        <button class="btn-confirm" onclick="sendToWhatsApp()">Confirmar y Enviar</button>
+        <button class="btn-close-modal" onclick="closeModal()">Seguir Comprando</button>
+    </div>
+</div>
 
 <footer>
-    <p>&copy; 2024 FOLKAFE - Quito, Ecuador</p>
+    <p>© 2024 FOLKAFE | Quito, Ecuador</p>
+    <p style="margin-top:5px; font-size: 0.65rem;">Diseño Optimizado para pedidos rápidos</p>
 </footer>
 
 <script>
@@ -413,7 +550,7 @@
         } else {
             container.innerHTML = `
                 <div class="controls">
-                    <button class="btn-qty minus" onclick="updateCart(${id}, -1)">-</button>
+                    <button class="btn-qty" onclick="updateCart(${id}, -1)">-</button>
                     <span class="qty-display">${item.qty}</span>
                     <button class="btn-qty plus" onclick="updateCart(${id}, 1)">+</button>
                 </div>
@@ -431,21 +568,43 @@
         }
 
         const cartBtn = document.getElementById('cart-btn');
-        const cartCount = document.getElementById('cart-count');
         const cartTotal = document.getElementById('cart-total');
 
         if (totalItems > 0) {
             cartBtn.classList.add('active');
-            cartCount.innerText = `🛒 Enviar Pedido (${totalItems})`;
             cartTotal.innerText = `$${totalPrice.toFixed(2)}`;
         } else {
             cartBtn.classList.remove('active');
         }
     }
 
-    function sendOrder() {
-        if (Object.keys(cart).length === 0) return;
+    function showSummary() {
+        const modal = document.getElementById('order-modal');
+        const listContainer = document.getElementById('order-list');
+        listContainer.innerHTML = '';
+        
+        let total = 0;
+        for (const id in cart) {
+            const item = cart[id];
+            const sub = item.price * item.qty;
+            total += sub;
+            listContainer.innerHTML += `
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #eee; padding-bottom:5px;">
+                    <span><b>${item.qty}x</b> ${item.name}</span>
+                    <span>$${sub.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        listContainer.innerHTML += `<div style="text-align:right; font-weight:800; margin-top:10px; font-size:1.1rem;">Total: $${total.toFixed(2)}</div>`;
+        
+        modal.style.display = 'flex';
+    }
 
+    function closeModal() {
+        document.getElementById('order-modal').style.display = 'none';
+    }
+
+    function sendToWhatsApp() {
         let message = "*¡Hola FOLKAFE! Me gustaría realizar este pedido:* \n\n";
         let total = 0;
 
@@ -456,13 +615,11 @@
             total += subtotal;
         }
 
-        message += `\n💰 *Total estimado: $${total.toFixed(2)}*`;
-        message += `\n\n📍 _Espero su confirmación y tiempo de entrega._`;
+        message += `\n💰 *Total pedido: $${total.toFixed(2)}*`;
+        message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega._`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
-        
-        window.location.href = whatsappUrl;
+        window.location.href = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
     }
 </script>
 
