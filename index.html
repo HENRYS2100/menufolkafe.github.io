@@ -1,0 +1,413 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOLKAFE | Menú</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c62828;
+            --primary-dark: #a51d1d;
+            --secondary: #ffb300;
+            --whatsapp: #25D366;
+            --bg: #f8f9fa;
+            --text: #2d3436;
+            --shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 100px; /* Espacio para el botón flotante */
+        }
+
+        /* Hero Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #8e0000 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Categorías */
+        h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: #e0e0e0;
+        }
+
+        /* Grid de Productos */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .menu-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Tarjetas de Producto */
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            background: #fdfdfd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1.2rem;
+            color: #111;
+        }
+
+        .card p {
+            margin: 0 0 15px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Botones */
+        .btn-add {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-add:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Carrito Flotante */
+        .cart-status {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 500px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            font-weight: 600;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .cart-status.active {
+            visibility: visible;
+            opacity: 1;
+            bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        /* Badge de cantidad en card */
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>☕ FOLKAFE</h1>
+    <p>Experiencia Gourmet y Tradición</p>
+</header>
+
+<div class="container">
+    
+    <!-- ENTRADAS -->
+    <h2>Entradas</h2>
+    <div class="menu-grid">
+        <div class="card" data-id="1" data-name="Nachos Grande" data-price="5.00">
+            <div class="card-img">🌮</div>
+            <div class="badge" id="badge-1">0</div>
+            <div class="card-content">
+                <h3>Nachos Grande</h3>
+                <p>Chilli con carne artesanal, mix de quesos y guacamole fresco.</p>
+                <span class="price-tag">$5.00</span>
+                <button class="btn-add" onclick="addToCart(1)">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="card" data-id="2" data-name="Nacho Clásico" data-price="3.50">
+            <div class="card-img">🧀</div>
+            <div class="badge" id="badge-2">0</div>
+            <div class="card-content">
+                <h3>Nacho Clásico</h3>
+                <p>Crujientes totopos con suave salsa de queso fundido.</p>
+                <span class="price-tag">$3.50</span>
+                <button class="btn-add" onclick="addToCart(2)">Agregar al pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HAMBURGUESAS -->
+    <h2>Hamburguesas</h2>
+    <div class="menu-grid">
+        <div class="card" data-id="4" data-name="folks timer" data-price="5.00">
+            <div class="card-img">🍔</div>
+            <div class="badge" id="badge-4">0</div>
+            <div class="card-content">
+                <h3>La Clásica</h3>
+                <p>Carne 100% res, lechuga, tomate y papas hilo.</p>
+                <span class="price-tag">$5.00</span>
+                <button class="btn-add" onclick="addToCart(4)">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="card" data-id="5" data-name="Big Mouth Burger" data-price="7.00">
+            <div class="card-img">🥓</div>
+            <div class="badge" id="badge-5">0</div>
+            <div class="card-content">
+                <h3>Big Mouth</h3>
+                <p>Doble carne, extra cheddar, tocino ahumado y salsa especial.</p>
+                <span class="price-tag">$7.00</span>
+                <button class="btn-add" onclick="addToCart(5)">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="card" data-id="6" data-name="La Especial" data-price="10.00">
+            <div class="card-img">👑</div>
+            <div class="badge" id="badge-6">0</div>
+            <div class="card-content">
+                <h3>La Especial</h3>
+                <p>Carne de res, costilla de cerdo desmechada y baño de cheddar.</p>
+                <span class="price-tag">$10.00</span>
+                <button class="btn-add" onclick="addToCart(6)">Agregar al pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <h2>Bebidas</h2>
+    <div class="menu-grid">
+        <div class="card" data-id="7" data-name="Limonada Mix" data-price="2.00">
+            <div class="card-img">🍋</div>
+            <div class="badge" id="badge-7">0</div>
+            <div class="card-content">
+                <h3>Limonada Mix</h3>
+                <p>Natural, Pink o Fresa. Refrescante y natural.</p>
+                <span class="price-tag">$2.00</span>
+                <button class="btn-add" onclick="addToCart(7)">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="card" data-id="8" data-name="Milkshake" data-price="3.50">
+            <div class="card-img">🥤</div>
+            <div class="badge" id="badge-8">0</div>
+            <div class="card-content">
+                <h3>Milkshake</h3>
+                <p>Cremosa malteada de Fresa, Chocolate o Mora.</p>
+                <span class="price-tag">$3.50</span>
+                <button class="btn-add" onclick="addToCart(8)">Agregar al pedido</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Botón Flotante de WhatsApp / Carrito -->
+<a href="#" class="cart-status" id="cart-btn" onclick="sendOrder()">
+    <span id="cart-count">Ver pedido (0)</span>
+    <span id="cart-total">$0.00</span>
+</a>
+
+<footer>
+    <p>&copy; 2024 FOLKAFE - Quito, Ecuador</p>
+    <p>Pedidos rápidos vía WhatsApp</p>
+</footer>
+
+<script>
+    let cart = {};
+    const PHONE_NUMBER = "593984592931";
+
+    function addToCart(id) {
+        const card = document.querySelector(`.card[data-id="${id}"]`);
+        const name = card.getAttribute('data-name');
+        const price = parseFloat(card.getAttribute('data-price'));
+
+        if (!cart[id]) {
+            cart[id] = { name, price, qty: 1 };
+        } else {
+            cart[id].qty += 1;
+        }
+
+        updateUI();
+    }
+
+    function updateUI() {
+        let totalItems = 0;
+        let totalPrice = 0;
+
+        // Limpiar todos los badges primero
+        document.querySelectorAll('.badge').forEach(b => b.style.display = 'none');
+
+        for (const id in cart) {
+            totalItems += cart[id].qty;
+            totalPrice += cart[id].price * cart[id].qty;
+
+            // Actualizar badge individual
+            const badge = document.getElementById(`badge-${id}`);
+            if (badge) {
+                badge.innerText = cart[id].qty;
+                badge.style.display = 'flex';
+            }
+        }
+
+        const cartBtn = document.getElementById('cart-btn');
+        const cartCount = document.getElementById('cart-count');
+        const cartTotal = document.getElementById('cart-total');
+
+        if (totalItems > 0) {
+            cartBtn.classList.add('active');
+            cartCount.innerText = `🛒 Enviar Pedido (${totalItems})`;
+            cartTotal.innerText = `$${totalPrice.toFixed(2)}`;
+        } else {
+            cartBtn.classList.remove('active');
+        }
+    }
+
+    function sendOrder() {
+        if (Object.keys(cart).length === 0) return;
+
+        let message = "*¡Hola FOLKAFE! Me gustaría hacer un pedido:* \n\n";
+        let total = 0;
+
+        for (const id in cart) {
+            const item = cart[id];
+            const subtotal = item.price * item.qty;
+            message += `✅ *${item.qty}x* ${item.name} - $${subtotal.toFixed(2)}\n`;
+            total += subtotal;
+        }
+
+        message += `\n💰 *Total a pagar: $${total.toFixed(2)}*`;
+        message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega._`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
+        
+        window.location.href = whatsappUrl;
+    }
+</script>
+
+</body>
+</html>
+
+```
