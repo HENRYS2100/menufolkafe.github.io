@@ -397,40 +397,66 @@
     <!-- HAMBURGUESAS -->
     <h2>Hamburguesas</h2>
     <div class="menu-grid">
-        <div class="card" data-id="4" data-name="Folk Timer" data-price="3.50">
+        <div class="card" data-id="3" data-name="Folk Timer" data-price="5.00">
             <div class="card-img">🍔</div>
             <div class="card-content">
                 <h3>Folk Timer</h3>
                 <p>Carne 100% res, lechuga, tomate, tocino, queso y papas fritas.</p>
-                <div class="price-tag">$3.50</div>
+                <div class="price-tag">$5.00</div>
+                <div id="ui-3">
+                    <button class="btn-add-initial" onclick="updateCart(3, 1)">Agregar al pedido</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-id="4" data-name="Big Mouth Burger" data-price="8.00">
+            <div class="badge">Top</div>
+            <div class="card-img">🥓</div>
+            <div class="card-content">
+                <h3>Big Mouth</h3>
+                <p>Doble carne, extra cheddar, doble tocino ahumado y salsa secreta.</p>
+                <div class="price-tag">$8.00</div>
                 <div id="ui-4">
                     <button class="btn-add-initial" onclick="updateCart(4, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
 
-        <div class="card" data-id="5" data-name="Big Mouth Burger" data-price="7.00">
+        <div class="card" data-id="5" data-name="JACK DANIEL´S Burger" data-price="7.00">
             <div class="badge">Top</div>
             <div class="card-img">🥓</div>
             <div class="card-content">
-                <h3>Big Mouth</h3>
-                <p>Doble carne, extra cheddar, doble tocino ahumado y salsa secreta.</p>
+                <h3>JACK DANIEL´S Burger</h3>
+                <p>carne al grill, con salsa Jack Daniel´s, queso cheddar, tocino ahumado y salsa secreta.</p>
                 <div class="price-tag">$7.00</div>
                 <div id="ui-5">
                     <button class="btn-add-initial" onclick="updateCart(5, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
-
-        <div class="card" data-id="6" data-name="La Patrona" data-price="10.00">
+        
+        <div class="card" data-id="6" data-name="TEX-MEX Burguer" data-price="7.00">
+            <div class="badge">Top</div>
+            <div class="card-img">🥓</div>
+            <div class="card-content">
+                <h3>TEX-MEX Burguer</h3>
+                <p>carne al grill, queso cheddar, tocino ahumado, cebolla salteada frijoles negros, aguacate y salsa secreta.</p>
+                <div class="price-tag">$7.00</div>
+                <div id="ui-6">
+                    <button class="btn-add-initial" onclick="updateCart(6, 1)">Agregar al pedido</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" data-id="7" data-name="La Patrona" data-price="10.00">
             <div class="badge">Premium</div>
             <div class="card-img">👑</div>
             <div class="card-content">
                 <h3>La Patrona</h3>
-                <p>Carne de res, costilla de cerdo desmechada al BBQ y baño de cheddar.</p>
+                <p>Carne al grill, lomo de res, al BBQ y baño de cheddar, tocino y salsa secreta.</p>
                 <div class="price-tag">$10.00</div>
-                <div id="ui-6">
-                    <button class="btn-add-initial" onclick="updateCart(6, 1)">Agregar al pedido</button>
+                <div id="ui-7">
+                    <button class="btn-add-initial" onclick="updateCart(7, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
@@ -439,43 +465,68 @@
     <!-- BEBIDAS -->
     <h2>Bebidas y Frappes</h2>
     <div class="menu-grid">
-        <div class="card" data-id="7" data-name="Limonada Mix" data-price="2.00">
+        <div class="card" data-id="8" data-name="Limonada Mix" data-price="2.00">
             <div class="card-img">🍋</div>
             <div class="card-content">
                 <h3>Limonada Mix</h3>
-                <p>Refrescante limonada natural, Pink o Blue según tu preferencia.</p>
+                <p>Refrescante limonada natural.</p>
                 <div class="price-tag">$2.00</div>
-                <div id="ui-7">
-                    <button class="btn-add-initial" onclick="updateCart(7, 1)">Agregar al pedido</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" data-id="8" data-name="Milkshake" data-price="3.50">
-            <div class="card-img">🥤</div>
-            <div class="card-content">
-                <h3>Milkshake</h3>
-                <p>Cremosa malteada de Fresa, Chocolate o Mora silvestre.</p>
-                <div class="price-tag">$3.50</div>
                 <div id="ui-8">
                     <button class="btn-add-initial" onclick="updateCart(8, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
 
-        <div class="card" data-id="9" data-name="Frapper Oreo" data-price="3.50">
-            <div class="card-img">🍪</div>
+        <div class="card" data-id="9" data-name="Limonada Mix" data-price="2.00">
+            <div class="card-img">🍋</div>
             <div class="card-content">
-                <h3>Frapper Oreo / Capuccino</h3>
-                <p>Delicioso granizado con galleta Oreo o base de café premium.</p>
-                <div class="price-tag">$3.50</div>
+                <h3>Limonada Mix</h3>
+                <p>Refrescante limonada Pink.</p>
+                <div class="price-tag">$2.00</div>
                 <div id="ui-9">
                     <button class="btn-add-initial" onclick="updateCart(9, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
+
+        <div class="card" data-id="10" data-name="Limonada Mix" data-price="2.00">
+            <div class="card-img">🍋</div>
+            <div class="card-content">
+                <h3>Limonada Mix</h3>
+                <p>Refrescante limonada Blue.</p>
+                <div class="price-tag">$3.00</div>
+                <div id="ui-10">
+                    <button class="btn-add-initial" onclick="updateCart(10, 1)">Agregar al pedido</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" data-id="11" data-name="Frapper Oreo" data-price="3.50">
+            <div class="card-img">🍪</div>
+            <div class="card-content">
+                <h3>Frapper Oreo </h3>
+                <p>Delicioso granizado con galleta Oreo </p>
+                <div class="price-tag">$3.50</div>
+                <div id="ui-11">
+                    <button class="btn-add-initial" onclick="updateCart(11, 1)">Agregar al pedido</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+     <div class="card" data-id="12" data-name="Cappuccino" data-price="3.50">
+            <div class="card-img">🍪</div>
+            <div class="card-content">
+                <h3>Capuccino</h3>
+                <p>Delicioso granizado con base de café premium.</p>
+                <div class="price-tag">$3.50</div>
+                <div id="ui-12">
+                    <button class="btn-add-initial" onclick="updateCart(12, 1)">Agregar al pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Sección de Redes Sociales -->
     <div class="social-section">
         <h3>¡Síguenos y visítanos! ⚡</h3>
