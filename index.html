@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #c62828;
-            --primary-dark: #a51d1d;
-            --secondary: #ffb300;
+            --primary: #a11d21;
+            --primary-dark: #7a1417;
+            --secondary: #f39233;
             --whatsapp: #25D366;
-            --bg: #f8f9fa;
+            --bg: #fdfdfd;
             --text: #2d3436;
             --shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
@@ -28,34 +28,44 @@
             margin: 0;
             background: var(--bg);
             color: var(--text);
-            padding-bottom: 100px; /* Espacio para el botón flotante */
+            padding-bottom: 120px;
         }
 
         /* Hero Header */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #8e0000 100%);
-            color: white;
+            background: white;
             text-align: center;
-            padding: 40px 20px;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+            padding: 30px 20px;
+            border-bottom: 4px solid var(--primary);
             box-shadow: var(--shadow);
         }
 
-        header h1 {
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .header-title h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            color: var(--primary);
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            margin: 10px 0 0;
+            margin: 5px 0 0;
+            color: var(--text);
             opacity: 0.9;
             font-weight: 400;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .container {
@@ -70,15 +80,16 @@
             align-items: center;
             gap: 10px;
             color: var(--primary);
-            margin: 30px 0 15px;
-            font-size: 1.5rem;
+            margin: 35px 0 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
         h2::after {
             content: "";
             flex: 1;
             height: 2px;
-            background: #e0e0e0;
+            background: #f0f0f0;
         }
 
         /* Grid de Productos */
@@ -97,56 +108,96 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
-        .card:active {
-            transform: scale(0.98);
-        }
-
         .card-img {
             width: 100%;
-            height: 160px;
+            height: 140px;
             background: #fdfdfd;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f5f5f5;
         }
 
         .card-content {
-            padding: 20px;
+            padding: 18px;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card h3 {
-            margin: 0 0 8px;
-            font-size: 1.2rem;
+            margin: 0 0 6px;
+            font-size: 1.05rem;
             color: #111;
+            font-weight: 700;
         }
 
         .card p {
-            margin: 0 0 15px;
-            font-size: 0.9rem;
-            color: #666;
+            margin: 0 0 12px;
+            font-size: 0.8rem;
+            color: #777;
             line-height: 1.4;
+            flex-grow: 1;
         }
 
         .price-tag {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 15px;
             display: block;
         }
 
-        /* Botones */
-        .btn-add {
+        /* Controles de Cantidad */
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: #f9f9f9;
+            padding: 4px;
+            border-radius: 12px;
+        }
+
+        .btn-qty {
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+
+        .btn-qty.plus {
+            background: var(--primary);
+            color: white;
+        }
+
+        .qty-display {
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .btn-add-initial {
             width: 100%;
             padding: 12px;
             border: none;
@@ -156,15 +207,7 @@
             font-weight: 600;
             font-family: inherit;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background 0.2s;
-        }
-
-        .btn-add:hover {
-            background: var(--primary-dark);
+            transition: transform 0.2s;
         }
 
         /* Carrito Flotante */
@@ -177,7 +220,7 @@
             max-width: 500px;
             background: var(--whatsapp);
             color: white;
-            padding: 15px 25px;
+            padding: 16px 25px;
             border-radius: 50px;
             display: flex;
             justify-content: space-between;
@@ -188,7 +231,7 @@
             font-weight: 600;
             visibility: hidden;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .cart-status.active {
@@ -200,34 +243,19 @@
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: #999;
-            font-size: 0.8rem;
+            color: #bbb;
+            font-size: 0.75rem;
         }
 
-        /* Badge de cantidad en card */
-        .badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--secondary);
-            color: #000;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.8rem;
-            border: 2px solid white;
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>☕ FOLKAFE</h1>
-    <p>Experiencia Gourmet y Tradición</p>
+    <div class="header-title">
+        <h1>🍔 FOLKAFE</h1>
+    </div>
+    <p>¡Ahora puedes disfrutar Folkafe Tex-Mex desde tu casa!</p>
 </header>
 
 <div class="container">
@@ -237,23 +265,25 @@
     <div class="menu-grid">
         <div class="card" data-id="1" data-name="Nachos Grande" data-price="5.00">
             <div class="card-img">🌮</div>
-            <div class="badge" id="badge-1">0</div>
             <div class="card-content">
                 <h3>Nachos Grande</h3>
                 <p>Chilli con carne artesanal, mix de quesos y guacamole fresco.</p>
                 <span class="price-tag">$5.00</span>
-                <button class="btn-add" onclick="addToCart(1)">Agregar al pedido</button>
+                <div id="ui-1">
+                    <button class="btn-add-initial" onclick="updateCart(1, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
 
         <div class="card" data-id="2" data-name="Nacho Clásico" data-price="3.50">
             <div class="card-img">🧀</div>
-            <div class="badge" id="badge-2">0</div>
             <div class="card-content">
                 <h3>Nacho Clásico</h3>
                 <p>Crujientes totopos con suave salsa de queso fundido.</p>
                 <span class="price-tag">$3.50</span>
-                <button class="btn-add" onclick="addToCart(2)">Agregar al pedido</button>
+                <div id="ui-2">
+                    <button class="btn-add-initial" onclick="updateCart(2, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
     </div>
@@ -261,36 +291,39 @@
     <!-- HAMBURGUESAS -->
     <h2>Hamburguesas</h2>
     <div class="menu-grid">
-        <div class="card" data-id="4" data-name="folks timer" data-price="5.00">
+        <div class="card" data-id="4" data-name="La Clásica" data-price="3.50">
             <div class="card-img">🍔</div>
-            <div class="badge" id="badge-4">0</div>
             <div class="card-content">
                 <h3>La Clásica</h3>
                 <p>Carne 100% res, lechuga, tomate y papas hilo.</p>
-                <span class="price-tag">$5.00</span>
-                <button class="btn-add" onclick="addToCart(4)">Agregar al pedido</button>
+                <span class="price-tag">$3.50</span>
+                <div id="ui-4">
+                    <button class="btn-add-initial" onclick="updateCart(4, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
 
-        <div class="card" data-id="5" data-name="Big Mouth Burger" data-price="7.00">
+        <div class="card" data-id="5" data-name="Big Mouth Burger" data-price="7.50">
             <div class="card-img">🥓</div>
-            <div class="badge" id="badge-5">0</div>
             <div class="card-content">
                 <h3>Big Mouth</h3>
                 <p>Doble carne, extra cheddar, tocino ahumado y salsa especial.</p>
-                <span class="price-tag">$7.00</span>
-                <button class="btn-add" onclick="addToCart(5)">Agregar al pedido</button>
+                <span class="price-tag">$7.50</span>
+                <div id="ui-5">
+                    <button class="btn-add-initial" onclick="updateCart(5, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
 
         <div class="card" data-id="6" data-name="La Especial" data-price="10.00">
             <div class="card-img">👑</div>
-            <div class="badge" id="badge-6">0</div>
             <div class="card-content">
                 <h3>La Especial</h3>
                 <p>Carne de res, costilla de cerdo desmechada y baño de cheddar.</p>
                 <span class="price-tag">$10.00</span>
-                <button class="btn-add" onclick="addToCart(6)">Agregar al pedido</button>
+                <div id="ui-6">
+                    <button class="btn-add-initial" onclick="updateCart(6, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
     </div>
@@ -300,30 +333,32 @@
     <div class="menu-grid">
         <div class="card" data-id="7" data-name="Limonada Mix" data-price="2.00">
             <div class="card-img">🍋</div>
-            <div class="badge" id="badge-7">0</div>
             <div class="card-content">
                 <h3>Limonada Mix</h3>
                 <p>Natural, Pink o Fresa. Refrescante y natural.</p>
                 <span class="price-tag">$2.00</span>
-                <button class="btn-add" onclick="addToCart(7)">Agregar al pedido</button>
+                <div id="ui-7">
+                    <button class="btn-add-initial" onclick="updateCart(7, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
 
         <div class="card" data-id="8" data-name="Milkshake" data-price="3.50">
             <div class="card-img">🥤</div>
-            <div class="badge" id="badge-8">0</div>
             <div class="card-content">
                 <h3>Milkshake</h3>
                 <p>Cremosa malteada de Fresa, Chocolate o Mora.</p>
                 <span class="price-tag">$3.50</span>
-                <button class="btn-add" onclick="addToCart(8)">Agregar al pedido</button>
+                <div id="ui-8">
+                    <button class="btn-add-initial" onclick="updateCart(8, 1)">Agregar al pedido</button>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
 
-<!-- Botón Flotante de WhatsApp / Carrito -->
+<!-- Carrito Flotante -->
 <a href="#" class="cart-status" id="cart-btn" onclick="sendOrder()">
     <span id="cart-count">Ver pedido (0)</span>
     <span id="cart-total">$0.00</span>
@@ -331,44 +366,55 @@
 
 <footer>
     <p>&copy; 2024 FOLKAFE - Quito, Ecuador</p>
-    <p>Pedidos rápidos vía WhatsApp</p>
 </footer>
 
 <script>
     let cart = {};
     const PHONE_NUMBER = "593984592931";
 
-    function addToCart(id) {
+    function updateCart(id, change) {
         const card = document.querySelector(`.card[data-id="${id}"]`);
         const name = card.getAttribute('data-name');
         const price = parseFloat(card.getAttribute('data-price'));
 
         if (!cart[id]) {
-            cart[id] = { name, price, qty: 1 };
-        } else {
-            cart[id].qty += 1;
+            cart[id] = { name, price, qty: 0 };
         }
 
-        updateUI();
+        cart[id].qty += change;
+
+        if (cart[id].qty <= 0) {
+            delete cart[id];
+        }
+
+        renderItemControls(id);
+        updateGlobalCartUI();
     }
 
-    function updateUI() {
+    function renderItemControls(id) {
+        const container = document.getElementById(`ui-${id}`);
+        const item = cart[id];
+
+        if (!item || item.qty <= 0) {
+            container.innerHTML = `<button class="btn-add-initial" onclick="updateCart(${id}, 1)">Agregar al pedido</button>`;
+        } else {
+            container.innerHTML = `
+                <div class="controls">
+                    <button class="btn-qty minus" onclick="updateCart(${id}, -1)">-</button>
+                    <span class="qty-display">${item.qty}</span>
+                    <button class="btn-qty plus" onclick="updateCart(${id}, 1)">+</button>
+                </div>
+            `;
+        }
+    }
+
+    function updateGlobalCartUI() {
         let totalItems = 0;
         let totalPrice = 0;
-
-        // Limpiar todos los badges primero
-        document.querySelectorAll('.badge').forEach(b => b.style.display = 'none');
 
         for (const id in cart) {
             totalItems += cart[id].qty;
             totalPrice += cart[id].price * cart[id].qty;
-
-            // Actualizar badge individual
-            const badge = document.getElementById(`badge-${id}`);
-            if (badge) {
-                badge.innerText = cart[id].qty;
-                badge.style.display = 'flex';
-            }
         }
 
         const cartBtn = document.getElementById('cart-btn');
@@ -387,18 +433,18 @@
     function sendOrder() {
         if (Object.keys(cart).length === 0) return;
 
-        let message = "*¡Hola FOLKAFE! Me gustaría hacer un pedido:* \n\n";
+        let message = "*¡Hola FOLKAFE! Me gustaría realizar este pedido:* \n\n";
         let total = 0;
 
         for (const id in cart) {
             const item = cart[id];
             const subtotal = item.price * item.qty;
-            message += `✅ *${item.qty}x* ${item.name} - $${subtotal.toFixed(2)}\n`;
+            message += `✅ *${item.qty}x* ${item.name} ($${subtotal.toFixed(2)})\n`;
             total += subtotal;
         }
 
-        message += `\n💰 *Total a pagar: $${total.toFixed(2)}*`;
-        message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega._`;
+        message += `\n💰 *Total estimado: $${total.toFixed(2)}*`;
+        message += `\n\n📍 _Espero su confirmación y tiempo de entrega._`;
 
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
