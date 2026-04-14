@@ -206,10 +206,6 @@
             transition: background 0.2s;
         }
 
-        .btn-add-initial:active {
-            background: var(--primary-dark);
-        }
-
         .social-section {
             margin-top: 50px;
             text-align: center;
@@ -294,7 +290,6 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
-            position: relative;
         }
 
         .btn-confirm {
@@ -505,11 +500,17 @@
     <div class="social-section">
         <h3>¡Síguenos y visítanos! ⚡</h3>
         <div class="social-buttons">
-            <!-- DIRECCIÓN ACTUALIZADA DE INSTAGRAM -->
-            <a href="https://www.instagram.com/folkafe.la?igsh=Y25mYXAzM2syaHAz" target="_blank" class="btn-social btn-instagram">
+            <!-- DIRECCIÓN CORREGIDA: folkafe.la -->
+            <a href="https://www.instagram.com/folkafe.la" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-social btn-instagram">
                 <span>📸</span> Instagram
             </a>
-            <a href="https://maps.app.goo.gl/uXv7fJ2C9v9D8H7L9" target="_blank" class="btn-social btn-location">
+            <a href="https://maps.app.goo.gl/uXv7fJ2C9v9D8H7L9" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-social btn-location">
                 <span>📍</span> Cómo llegar
             </a>
         </div>
@@ -646,7 +647,6 @@
         window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`, '_blank');
     }
 
-    // Cerrar modal al tocar fuera
     window.onclick = function(event) {
         const modal = document.getElementById('order-modal');
         if (event.target == modal) {
@@ -657,5 +657,3 @@
 
 </body>
 </html>
-
-```
