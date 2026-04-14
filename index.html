@@ -36,7 +36,6 @@
             line-height: 1.6;
         }
 
-        /* Hero Header Modernizado */
         header {
             background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
             text-align: center;
@@ -71,7 +70,6 @@
             padding: 20px;
         }
 
-        /* Secciones */
         h2 {
             display: flex;
             align-items: center;
@@ -89,14 +87,12 @@
             background: linear-gradient(to right, #eee, transparent);
         }
 
-        /* Grid */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        /* Tarjetas Mejoradas */
         .card {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -116,12 +112,10 @@
         .card-img {
             width: 100%;
             height: 160px;
-            background: #fdfdfd;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3.5rem;
-            position: relative;
             background: radial-gradient(circle, #ffffff, #f9f9f9);
         }
 
@@ -136,6 +130,7 @@
             padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
+            z-index: 10;
         }
 
         .card-content {
@@ -165,7 +160,6 @@
             margin-bottom: 15px;
         }
 
-        /* Controles */
         .controls {
             display: flex;
             align-items: center;
@@ -186,7 +180,6 @@
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: all 0.2s;
         }
 
         .btn-qty.plus {
@@ -209,11 +202,9 @@
             font-weight: 700;
             font-family: inherit;
             cursor: pointer;
-            transition: 0.2s;
             box-shadow: 0 4px 10px rgba(161, 29, 33, 0.2);
         }
 
-        /* Redes Sociales */
         .social-section {
             margin-top: 50px;
             text-align: center;
@@ -223,17 +214,12 @@
             box-shadow: var(--shadow);
         }
 
-        .social-section h3 {
-            margin-bottom: 20px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
+            margin-top: 20px;
         }
 
         .btn-social {
@@ -246,27 +232,16 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
-            transition: transform 0.3s ease;
         }
 
-        .btn-social:active {
-            transform: scale(0.95);
-        }
+        .btn-instagram { background: var(--instagram); }
+        .btn-location { background: #4285F4; }
 
-        .btn-instagram {
-            background: var(--instagram);
-        }
-
-        .btn-location {
-            background: #4285F4;
-        }
-
-        /* Carrito Flotante */
         .cart-status {
             position: fixed;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%) translateY(100px);
+            transform: translateX(-50%) translateY(120px);
             width: calc(100% - 40px);
             max-width: 450px;
             background: var(--text-main);
@@ -278,7 +253,6 @@
             align-items: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             z-index: 1000;
-            text-decoration: none;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -289,27 +263,13 @@
         .cart-btn-send {
             background: var(--whatsapp);
             color: white;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 12px;
             font-size: 0.9rem;
             font-weight: 700;
-            animation: pulse 2s infinite;
+            cursor: pointer;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        /* Modal Simple */
         #order-modal {
             display: none;
             position: fixed;
@@ -330,8 +290,7 @@
             text-align: center;
         }
 
-        .modal-content h4 { margin-top: 0; font-size: 1.3rem; }
-        .modal-content .btn-confirm {
+        .btn-confirm {
             background: var(--whatsapp);
             color: white;
             border: none;
@@ -342,6 +301,7 @@
             margin-top: 20px;
             cursor: pointer;
         }
+
         .btn-close-modal {
             background: #eee;
             margin-top: 10px;
@@ -352,6 +312,12 @@
             cursor: pointer;
         }
 
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -382,7 +348,7 @@
         </div>
 
         <div class="card" data-id="2" data-name="Folk Chilli Fries" data-price="5.00">
-            <div class="card-img">🍟</div>
+            <div class="card-img"> Fries 🍟</div>
             <div class="card-content">
                 <h3>Folk Chilli Fries</h3>
                 <p>Papas crujientes con chilli carne, salsa de tomate de la casa y queso.</p>
@@ -423,11 +389,11 @@
         </div>
 
         <div class="card" data-id="5" data-name="JACK DANIEL´S Burger" data-price="7.00">
-            <div class="badge">Top</div>
-            <div class="card-img">🥓</div>
+            <div class="badge">Favorita</div>
+            <div class="card-img">🥃</div>
             <div class="card-content">
                 <h3>JACK DANIEL´S Burger</h3>
-                <p>carne al grill, con salsa Jack Daniel´s, queso cheddar, tocino ahumado y salsa secreta.</p>
+                <p>Carne al grill, con salsa Jack Daniel´s, queso cheddar, tocino ahumado y salsa secreta.</p>
                 <div class="price-tag">$7.00</div>
                 <div id="ui-5">
                     <button class="btn-add-initial" onclick="updateCart(5, 1)">Agregar al pedido</button>
@@ -435,12 +401,11 @@
             </div>
         </div>
         
-        <div class="card" data-id="6" data-name="TEX-MEX Burguer" data-price="7.00">
-            <div class="badge">Top</div>
-            <div class="card-img">🥓</div>
+        <div class="card" data-id="6" data-name="TEX-MEX Burger" data-price="7.00">
+            <div class="card-img">🇲🇽</div>
             <div class="card-content">
-                <h3>TEX-MEX Burguer</h3>
-                <p>carne al grill, queso cheddar, tocino ahumado, cebolla salteada frijoles negros, aguacate y salsa secreta.</p>
+                <h3>TEX-MEX Burger</h3>
+                <p>Carne al grill, queso cheddar, tocino ahumado, cebolla salteada, frijoles negros, aguacate y salsa secreta.</p>
                 <div class="price-tag">$7.00</div>
                 <div id="ui-6">
                     <button class="btn-add-initial" onclick="updateCart(6, 1)">Agregar al pedido</button>
@@ -453,7 +418,7 @@
             <div class="card-img">👑</div>
             <div class="card-content">
                 <h3>La Patrona</h3>
-                <p>Carne al grill, lomo de res, al BBQ y baño de cheddar, tocino y salsa secreta.</p>
+                <p>Carne al grill, lomo de res al BBQ, baño de cheddar, tocino y salsa secreta.</p>
                 <div class="price-tag">$10.00</div>
                 <div id="ui-7">
                     <button class="btn-add-initial" onclick="updateCart(7, 1)">Agregar al pedido</button>
@@ -465,11 +430,11 @@
     <!-- BEBIDAS -->
     <h2>Bebidas y Frappes</h2>
     <div class="menu-grid">
-        <div class="card" data-id="8" data-name="Limonada Mix" data-price="2.00">
+        <div class="card" data-id="8" data-name="Limonada Natural" data-price="2.00">
             <div class="card-img">🍋</div>
             <div class="card-content">
-                <h3>Limonada Mix</h3>
-                <p>Refrescante limonada natural.</p>
+                <h3>Limonada Mix Natural</h3>
+                <p>Refrescante limonada natural recién exprimida.</p>
                 <div class="price-tag">$2.00</div>
                 <div id="ui-8">
                     <button class="btn-add-initial" onclick="updateCart(8, 1)">Agregar al pedido</button>
@@ -477,11 +442,11 @@
             </div>
         </div>
 
-        <div class="card" data-id="9" data-name="Limonada Mix" data-price="2.00">
-            <div class="card-img">🍋</div>
+        <div class="card" data-id="9" data-name="Limonada Pink" data-price="2.00">
+            <div class="card-img">🌸</div>
             <div class="card-content">
-                <h3>Limonada Mix</h3>
-                <p>Refrescante limonada Pink.</p>
+                <h3>Limonada Mix Pink</h3>
+                <p>Refrescante limonada Pink con un toque especial.</p>
                 <div class="price-tag">$2.00</div>
                 <div id="ui-9">
                     <button class="btn-add-initial" onclick="updateCart(9, 1)">Agregar al pedido</button>
@@ -489,11 +454,11 @@
             </div>
         </div>
 
-        <div class="card" data-id="10" data-name="Limonada Mix" data-price="2.00">
-            <div class="card-img">🍋</div>
+        <div class="card" data-id="10" data-name="Limonada Blue" data-price="3.00">
+            <div class="card-img">💎</div>
             <div class="card-content">
-                <h3>Limonada Mix</h3>
-                <p>Refrescante limonada Blue.</p>
+                <h3>Limonada Mix Blue</h3>
+                <p>Refrescante limonada Blue intensa.</p>
                 <div class="price-tag">$3.00</div>
                 <div id="ui-10">
                     <button class="btn-add-initial" onclick="updateCart(10, 1)">Agregar al pedido</button>
@@ -501,24 +466,23 @@
             </div>
         </div>
         
-        <div class="card" data-id="11" data-name="Frapper Oreo" data-price="3.50">
+        <div class="card" data-id="11" data-name="Frappé Oreo" data-price="3.50">
             <div class="card-img">🍪</div>
             <div class="card-content">
-                <h3>Frapper Oreo </h3>
-                <p>Delicioso granizado con galleta Oreo </p>
+                <h3>Frappé Oreo</h3>
+                <p>Delicioso granizado con trozos de galleta Oreo y crema.</p>
                 <div class="price-tag">$3.50</div>
                 <div id="ui-11">
                     <button class="btn-add-initial" onclick="updateCart(11, 1)">Agregar al pedido</button>
                 </div>
             </div>
         </div>
-    </div>
 
-     <div class="card" data-id="12" data-name="Cappuccino" data-price="3.50">
-            <div class="card-img">🍪</div>
+        <div class="card" data-id="12" data-name="Cappuccino Frappé" data-price="3.50">
+            <div class="card-img">☕</div>
             <div class="card-content">
                 <h3>Capuccino</h3>
-                <p>Delicioso granizado con base de café premium.</p>
+                <p>Delicioso granizado con base de café premium y leche.</p>
                 <div class="price-tag">$3.50</div>
                 <div id="ui-12">
                     <button class="btn-add-initial" onclick="updateCart(12, 1)">Agregar al pedido</button>
@@ -527,7 +491,7 @@
         </div>
     </div>
     
-    <!-- Sección de Redes Sociales -->
+    <!-- Redes Sociales -->
     <div class="social-section">
         <h3>¡Síguenos y visítanos! ⚡</h3>
         <div class="social-buttons">
@@ -539,7 +503,6 @@
             </a>
         </div>
     </div>
-
 </div>
 
 <!-- Carrito Flotante -->
@@ -553,11 +516,11 @@
     </div>
 </div>
 
-<!-- Modal de Resumen -->
+<!-- Modal -->
 <div id="order-modal">
     <div class="modal-content">
         <h4>Resumen del Pedido</h4>
-        <div id="order-list" style="text-align: left; margin: 15px 0; max-height: 200px; overflow-y: auto;">
+        <div id="order-list" style="text-align: left; margin: 15px 0; max-height: 250px; overflow-y: auto;">
         </div>
         <button class="btn-confirm" onclick="sendToWhatsApp()">Confirmar y Enviar</button>
         <button class="btn-close-modal" onclick="closeModal()">Seguir Comprando</button>
@@ -566,7 +529,6 @@
 
 <footer>
     <p>© 2024 FOLKAFE | Quito, Ecuador</p>
-    <p style="margin-top:5px; font-size: 0.65rem;">Diseño Optimizado para pedidos rápidos</p>
 </footer>
 
 <script>
@@ -633,20 +595,20 @@
         const modal = document.getElementById('order-modal');
         const listContainer = document.getElementById('order-list');
         listContainer.innerHTML = '';
-        
+
         let total = 0;
         for (const id in cart) {
             const item = cart[id];
             const sub = item.price * item.qty;
             total += sub;
             listContainer.innerHTML += `
-                <div style="display:flex; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid #eee; padding-bottom:5px;">
-                    <span><b>${item.qty}x</b> ${item.name}</span>
-                    <span>$${sub.toFixed(2)}</span>
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #f0f0f0; padding-bottom:5px;">
+                    <span><span style="color:#a11d21; font-weight:700;">${item.qty}x</span> ${item.name}</span>
+                    <span style="font-weight:600;">$${sub.toFixed(2)}</span>
                 </div>
             `;
         }
-        listContainer.innerHTML += `<div style="text-align:right; font-weight:800; margin-top:10px; font-size:1.1rem;">Total: $${total.toFixed(2)}</div>`;
+        listContainer.innerHTML += `<div style="text-align:right; font-weight:800; margin-top:15px; font-size:1.2rem; color:#a11d21;">Total: $${total.toFixed(2)}</div>`;
         
         modal.style.display = 'flex';
     }
@@ -667,10 +629,18 @@
         }
 
         message += `\n💰 *Total pedido: $${total.toFixed(2)}*`;
-        message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega._`;
+        message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega y métodos de pago._`;
 
         const encodedMessage = encodeURIComponent(message);
         window.location.href = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
+    }
+
+    // Cerrar modal al tocar fuera
+    window.onclick = function(event) {
+        const modal = document.getElementById('order-modal');
+        if (event.target == modal) {
+            closeModal();
+        }
     }
 </script>
 
