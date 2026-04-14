@@ -203,6 +203,11 @@
             font-family: inherit;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(161, 29, 33, 0.2);
+            transition: background 0.2s;
+        }
+
+        .btn-add-initial:active {
+            background: var(--primary-dark);
         }
 
         .social-section {
@@ -241,19 +246,19 @@
             position: fixed;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%) translateY(120px);
+            transform: translateX(-50%) translateY(150px);
             width: calc(100% - 40px);
             max-width: 450px;
             background: var(--text-main);
             color: white;
-            padding: 18px 25px;
+            padding: 15px 25px;
             border-radius: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .cart-status.active {
@@ -263,18 +268,19 @@
         .cart-btn-send {
             background: var(--whatsapp);
             color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 15px;
             font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
+            border: none;
         }
 
         #order-modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -284,32 +290,36 @@
         .modal-content {
             background: white;
             padding: 25px;
-            border-radius: 20px;
+            border-radius: 25px;
             width: 100%;
             max-width: 400px;
             text-align: center;
+            position: relative;
         }
 
         .btn-confirm {
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 15px;
+            padding: 16px;
             width: 100%;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 700;
             margin-top: 20px;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .btn-close-modal {
-            background: #eee;
+            background: #f1f2f6;
             margin-top: 10px;
             border: none;
-            padding: 10px;
+            padding: 12px;
             width: 100%;
-            border-radius: 12px;
+            border-radius: 14px;
             cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
         footer {
@@ -348,7 +358,7 @@
         </div>
 
         <div class="card" data-id="2" data-name="Folk Chilli Fries" data-price="5.00">
-            <div class="card-img"> Fries 🍟</div>
+            <div class="card-img">🍟</div>
             <div class="card-content">
                 <h3>Folk Chilli Fries</h3>
                 <p>Papas crujientes con chilli carne, salsa de tomate de la casa y queso.</p>
@@ -366,7 +376,7 @@
         <div class="card" data-id="3" data-name="Folk Timer Burguer" data-price="5.00">
             <div class="card-img">🍔</div>
             <div class="card-content">
-                <h3>Folk TimerBurguer</h3>
+                <h3>Folk Timer Burguer</h3>
                 <p>Carne 100% res, lechuga, tomate, tocino, queso y papas fritas.</p>
                 <div class="price-tag">$5.00</div>
                 <div id="ui-3">
@@ -392,7 +402,7 @@
             <div class="badge">Favorita</div>
             <div class="card-img">🥃</div>
             <div class="card-content">
-                <h3>JACK DANIEL´S Burguer </h3>
+                <h3>JACK DANIEL´S Burguer</h3>
                 <p>Carne al grill, con salsa Jack Daniel´s, queso cheddar, tocino ahumado y salsa secreta.</p>
                 <div class="price-tag">$7.00</div>
                 <div id="ui-5">
@@ -481,7 +491,7 @@
         <div class="card" data-id="12" data-name="Cappuccino Frappé" data-price="3.50">
             <div class="card-img">☕</div>
             <div class="card-content">
-                <h3>Capuccino</h3>
+                <h3>Cappuccino Frappé</h3>
                 <p>Delicioso granizado con base de café premium y leche.</p>
                 <div class="price-tag">$3.50</div>
                 <div id="ui-12">
@@ -495,7 +505,8 @@
     <div class="social-section">
         <h3>¡Síguenos y visítanos! ⚡</h3>
         <div class="social-buttons">
-            <a href="https://www.instagram.com/folkafe.la?igsh=cnVxZ2c0MXhjeDh3" target="_blank" class="btn-social btn-instagram">
+            <!-- DIRECCIÓN ACTUALIZADA DE INSTAGRAM -->
+            <a href="https://www.instagram.com/folkafe_la/" target="_blank" class="btn-social btn-instagram">
                 <span>📸</span> Instagram
             </a>
             <a href="https://maps.app.goo.gl/uXv7fJ2C9v9D8H7L9" target="_blank" class="btn-social btn-location">
@@ -511,16 +522,16 @@
         <div style="font-size: 0.8rem; opacity: 0.8;">Tu Pedido</div>
         <div id="cart-total" style="font-size: 1.1rem; font-weight: 700;">$0.00</div>
     </div>
-    <div class="cart-btn-send" onclick="showSummary()">
-        Enviar Pedido ➔
-    </div>
+    <button class="cart-btn-send" onclick="showSummary()">
+        Ver Resumen ➔
+    </button>
 </div>
 
 <!-- Modal -->
 <div id="order-modal">
     <div class="modal-content">
-        <h4>Resumen del Pedido</h4>
-        <div id="order-list" style="text-align: left; margin: 15px 0; max-height: 250px; overflow-y: auto;">
+        <h4 style="margin-top: 0; font-size: 1.3rem;">Resumen del Pedido</h4>
+        <div id="order-list" style="text-align: left; margin: 15px 0; max-height: 300px; overflow-y: auto; padding: 5px;">
         </div>
         <button class="btn-confirm" onclick="sendToWhatsApp()">Confirmar y Enviar</button>
         <button class="btn-close-modal" onclick="closeModal()">Seguir Comprando</button>
@@ -602,13 +613,13 @@
             const sub = item.price * item.qty;
             total += sub;
             listContainer.innerHTML += `
-                <div style="display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #f0f0f0; padding-bottom:5px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:12px; border-bottom:1px solid #f0f0f0; padding-bottom:8px;">
                     <span><span style="color:#a11d21; font-weight:700;">${item.qty}x</span> ${item.name}</span>
                     <span style="font-weight:600;">$${sub.toFixed(2)}</span>
                 </div>
             `;
         }
-        listContainer.innerHTML += `<div style="text-align:right; font-weight:800; margin-top:15px; font-size:1.2rem; color:#a11d21;">Total: $${total.toFixed(2)}</div>`;
+        listContainer.innerHTML += `<div style="text-align:right; font-weight:800; margin-top:15px; font-size:1.3rem; color:#a11d21;">Total: $${total.toFixed(2)}</div>`;
         
         modal.style.display = 'flex';
     }
@@ -632,7 +643,7 @@
         message += `\n\n📍 _Por favor, confírmenme el tiempo de entrega y métodos de pago._`;
 
         const encodedMessage = encodeURIComponent(message);
-        window.location.href = `https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`;
+        window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`, '_blank');
     }
 
     // Cerrar modal al tocar fuera
